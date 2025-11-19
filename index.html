@@ -1,38 +1,52 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
-
+  <meta charset="UTF-8" />
+  <title>Damian's Simple To-Do/title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <h1> To-Do List</h1>
+  <h1>To-Do List</h1>
 
-    <div id="input=row">
-        <input id="todo-input"/>
-        <button id="add-btn">Add</button>
-    </div>
+  <div id="input-row">
+    <input id="todo-input" placeholder="New task" />
+    <button id="add-btn">Add</button>
+  </div>
 
-    <ul id="todo-list"></ul>
+  <ul id="todo-list"></ul>
 
-    <script>
-        const input = document.getElementById("todo-input")
-        const addBtn = document.getElementById("add-btn")
-        const list = document.getElementById("todo-list")
+  <script>
+    const input = document.getElementById("todo-input");
+    const addBtn = document.getElementById("add-btn");
+    const list = document.getElementById("todo-list");
 
-        let todos = []
+    let todos = [];
 
-        function render() {
-            list.innerHTML = ""
-            todos.forEach((text, index) => {
-                const li = document.createElement("li")
+    function render() {
+      list.innerHTML = "";
 
-                const span = document.createElement("span")
-                span.textContent = text
+      todos.forEach((text, index) => {
+        const li = document.createElement("li");
 
-                li.appendChild(span)
-                
-            })
-        }
-        addBtn.onclick = () => {
-            const text = input.value.trim()
-        }
-    </script>
+        const span = document.createElement("span");
+        span.textContent = text;
+
+        li.appendChild(span);
+        list.appendChild(li);
+      });
+    }
+
+    addBtn.onclick = () => {
+      const text = input.value.trim();
+      if (!text) return;
+
+      todos.push(text);
+      input.value = "";
+      render();
+    };
+  </script>
 </body>
+
+</html>
