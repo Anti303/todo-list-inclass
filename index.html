@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Damian's Simple To-Do/title>
+  <title>Simple To-Do (Fullstack)</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -17,36 +17,7 @@
 
   <ul id="todo-list"></ul>
 
-  <script>
-    const input = document.getElementById("todo-input");
-    const addBtn = document.getElementById("add-btn");
-    const list = document.getElementById("todo-list");
-
-    let todos = [];
-
-    function render() {
-      list.innerHTML = "";
-
-      todos.forEach((text, index) => {
-        const li = document.createElement("li");
-
-        const span = document.createElement("span");
-        span.textContent = text;
-
-        li.appendChild(span);
-        list.appendChild(li);
-      });
-    }
-
-    addBtn.onclick = () => {
-      const text = input.value.trim();
-      if (!text) return;
-
-      todos.push(text);
-      input.value = "";
-      render();
-    };
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
